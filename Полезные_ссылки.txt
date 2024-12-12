@@ -1,1 +1,4 @@
 1. https://alexgyver.ru/lessons/ - сайт с уроками по Arduino и прочими ништяками
+2. https://alexgyver.ru/arduino_lessons/
+3. https://docs.arduino.cc/language-reference/
+4. https://metanit.com/

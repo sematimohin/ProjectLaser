@@ -1,12 +1,20 @@
-#define LED_PIN 13
-#define BLINK_DELAY 1000
+
+ #define IN1 4
+ #define IN2 5   
+ #define IN3 6
+ #define IN4 7
 void setup() {
-    pinMode(LED_PIN, OUTPUT);
+ pinMode(IN1, OUTPUT);
+ pinMode(IN2, OUTPUT);
+ pinMode(IN3, OUTPUT);
+ pinMode(IN4, OUTPUT);
+ 
 }
 void loop() {
-    
-    digitalWrite(LED_PIN, HIGH);
-    delay(BLINK_DELAY);
-    digitalWrite(LED_PIN, LOW);
-    delay(BLINK_DELAY);
+
+digitalWrite(IN1,LOW);
+digitalWrite(IN2,HIGH);
+digitalWrite(IN3,LOW);
+digitalWrite(IN4,HIGH);
+
 }
