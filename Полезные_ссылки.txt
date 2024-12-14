@@ -3,6 +3,10 @@
 3. https://docs.arduino.cc/language-reference/
 4. https://metanit.com/
 
+<<<<<<< HEAD
 
 5. РАСПИНОВКА ARDUINO UNO
 https://compacttool.ru/arduino-uno-r3-pro
+=======
+5. https://www.youtube.com/watch?v=LuX_ZGIRCzo - работа оптического датчика
+>>>>>>> origin/main
