@@ -2,3 +2,7 @@
 2. https://alexgyver.ru/arduino_lessons/
 3. https://docs.arduino.cc/language-reference/
 4. https://metanit.com/
+
+
+5. РАСПИНОВКА ARDUINO UNO
+https://compacttool.ru/arduino-uno-r3-pro
