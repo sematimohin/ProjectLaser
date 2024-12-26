@@ -1,5 +1,5 @@
 //ОБЪЯВЛЕНИЕ КОНСТАНТ И ПЕРЕМЕННЫХ.
-
+  
   const int o_ENA = 11; // Вывод управления скоростью вращения мотора №1
   const int o_IN1 = 0; // Вывод управления направлением вращения мотора №1
   const int o_IN2 = 1; // Вывод управления направлением вращения мотора №1
@@ -15,9 +15,19 @@
 
   // Переменная, в которой будет храниться текущее полученное значение с датчика.
   int sensor1_value = 0;
-
+  int start_count = 0;
+  int period = 0;
+  int period1 = 0;
+  int current_count = 0;
   uint8_t Motor1_power = 0; // Значение ШИМ (или скорости вращения) 8-битный целочисленный тип без знака
   uint8_t Motor2_power = 0;
+
+  int calculate_period(){ 
+    current_count = millis();
+    period = current_count - start_count;
+    start_count = current_count;
+    return period;
+  }
 
 void setup()
 {
@@ -43,11 +53,11 @@ void setup()
     digitalWrite(o_IN4, LOW);
 
     // Команда включить лазер
-    digitalWrite(o_LASER, HIGH);
+    digitalWrite(o_LASER, LOW);
 
-    Motor1_power = 50; // Устанавливаем значение ШИМ 50 для 1 мотора
+    Motor1_power = 40 ; // Устанавливаем значение ШИМ 50 для 1 мотора
     delay(200);
-    Motor2_power = 63; // ШИМ для второго мотора
+    Motor2_power = 0; // ШИМ для второго мотора
     analogWrite(o_ENA, Motor1_power); // Устанавливаем скорость 1-го мотора
     analogWrite(o_ENB, Motor2_power); // Устанавливаем скорость 1-го мотора
 
@@ -63,11 +73,14 @@ void loop()
 {
 
     sensor1_value = digitalRead(i_SENSOR1_DIGITAL); // Считываем текущее значение с датчика
+//    Serial.print("\t Digital Reading=");
+//    Serial.println(sensor1_value);
+    delay(2);
+    
+    if(sensor1_value ==0) // Если пришёл 0 с датчика, то вызываем функцию вычисления периода вращения мотора.
+        period1 = calculate_period(); // Запись в переменную period1 вычисленного времени вращения
 
-    Serial.print("\t Digital Reading=");
-    Serial.println(sensor1_value);
-    delay(5);
-
-
+ Serial.print("\t Period1=");
+ Serial.println(period1);
 
 }
