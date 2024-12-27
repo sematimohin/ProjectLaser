@@ -1,5 +1,11 @@
 //ОБЪЯВЛЕНИЕ КОНСТАНТ И ПЕРЕМЕННЫХ.
+  #include "median3.h"
+  #include "kalman.h"
+
+  GKalman testFilter(140, 68, 1);
+
   
+//  GMedian3<int> testFilter;
   const int o_ENA = 11; // Вывод управления скоростью вращения мотора №1
   const int o_IN1 = 0; // Вывод управления направлением вращения мотора №1
   const int o_IN2 = 1; // Вывод управления направлением вращения мотора №1
@@ -55,9 +61,11 @@ void setup()
     // Команда включить лазер
     digitalWrite(o_LASER, LOW);
 
-    Motor1_power = 40 ; // Устанавливаем значение ШИМ 50 для 1 мотора
+    Motor1_power = 10 ; // Устанавливаем значение ШИМ 50 для 1 мотора 30 на 65(70) пропеллер адоб
     delay(200);
-    Motor2_power = 0; // ШИМ для второго мотора
+    Motor2_power = 0 ; // ШИМ для второго мотора
+
+    
     analogWrite(o_ENA, Motor1_power); // Устанавливаем скорость 1-го мотора
     analogWrite(o_ENB, Motor2_power); // Устанавливаем скорость 1-го мотора
 
@@ -80,7 +88,19 @@ void loop()
     if(sensor1_value ==0) // Если пришёл 0 с датчика, то вызываем функцию вычисления периода вращения мотора.
         period1 = calculate_period(); // Запись в переменную period1 вычисленного времени вращения
 
- Serial.print("\t Period1=");
- Serial.println(period1);
+//Serial.println(period1);
+
+  Serial.println(analogRead(Motor1_power));
+//   //Медиана
+//      period1 = testFilter.filtered(period1); 
+//  Serial.println(period1);
+
+//  Калман
+//  period1 = testFilter.filtered((int)period1);
+//  Serial.println(period1);
+//  Serial.println(";");
+
+// Serial.print("\t Period1=");
+// Serial.println(period1);
 
 }
