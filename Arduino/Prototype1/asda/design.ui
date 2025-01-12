@@ -102,32 +102,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="Period1Label">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>200</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Period1: 0</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="Period2Label">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>50</y>
-      <width>200</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Period2: 0</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
